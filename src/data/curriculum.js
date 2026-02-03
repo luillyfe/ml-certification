@@ -1,12 +1,19 @@
 
+const getAssetPath = (path) => {
+    const baseUrl = import.meta.env.BASE_URL;
+    // Remove leading slash from path if it exists to avoid double slash
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    return `${baseUrl}${cleanPath}`;
+};
+
 const IMAGES = {
-    hero: "/images/hero_aesthetic.png",
-    week1: "/images/week1.png",
-    week2: "/images/week2.png",
-    week3: "/images/week3.png",
-    week4: "/images/week4.png",
-    week5: "/images/week5.png",
-    week6: "/images/week6.png"
+    hero: getAssetPath("images/hero_aesthetic.png"),
+    week1: getAssetPath("images/week1.png"),
+    week2: getAssetPath("images/week2.png"),
+    week3: getAssetPath("images/week3.png"),
+    week4: getAssetPath("images/week4.png"),
+    week5: getAssetPath("images/week5.png"),
+    week6: getAssetPath("images/week6.png")
 };
 
 export const heroImage = IMAGES.hero;
